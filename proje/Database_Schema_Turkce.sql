@@ -1,18 +1,4 @@
--- Çamaşırhane Projesi Veritabanı Şeması (TÜRKÇE)
--- SQL Server için hazırlanmıştır
 
--- Veritabanını oluştur (isteğe bağlı)
--- CREATE DATABASE CamasirhaneDB;
--- GO
--- USE CamasirhaneDB;
--- GO
-
--- ÖNEMLİ: Eğer eski veritabanı varsa, önce tabloları silin:
--- DROP TABLE IF EXISTS Rezervasyonlar;
--- DROP TABLE IF EXISTS Duyurular;
--- DROP TABLE IF EXISTS Programlar;
--- DROP TABLE IF EXISTS Makineler;
--- DROP TABLE IF EXISTS Kullanicilar;
 
 -- 1. Kullanıcılar Tablosu
 CREATE TABLE Kullanicilar (

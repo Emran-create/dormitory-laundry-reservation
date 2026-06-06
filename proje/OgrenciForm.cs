@@ -31,7 +31,7 @@ namespace proje
             reservationRepository = new ReservationRepository();
             Text = $"Hoşgeldin -{mvctUser.FullName ?? "Kullanıcı"}";
 
-            // Duyurular gridini programatik olarak ekle
+
             dataGridViewDuyurular = new DataGridView();
             dataGridViewDuyurular.Name = "dataGridViewDuyurular";
             dataGridViewDuyurular.ReadOnly = true;
@@ -54,12 +54,11 @@ namespace proje
         {
             try
             {
-                // TableAdapter kaldırıldı - Artık SQL sorgularıyla veri çekiyoruz
                 if (dateTimePicker1 != null)
                 {
                     dateTimePicker1.Value = DateTime.Today;
                     dateTimePicker1.MinDate = DateTime.Today;
-                    // Hafta sonu seçimine izin verme: başlangıç tarihi hafta sonu ise ilk iş gününe çek
+
                     if (dateTimePicker1.Value.DayOfWeek == DayOfWeek.Saturday || dateTimePicker1.Value.DayOfWeek == DayOfWeek.Sunday)
                     {
                         var d = dateTimePicker1.Value;
@@ -156,10 +155,10 @@ namespace proje
                 if (dataGridView2 == null) return;
                 if (cmbMakine == null) return;
 
-                // Makine seçili mi kontrol et
+ 
                 if (cmbMakine.SelectedValue == null)
                 {
-                    // Makine seçili değilse boş tablo göster
+
                     var emptyTable = new DataTable();
                     emptyTable.Columns.Add("Saat", typeof(string));
                     emptyTable.Columns.Add("Durum", typeof(string));
@@ -174,7 +173,7 @@ namespace proje
                 table.Columns.Add("Durum", typeof(string));
                 table.Columns.Add("Renk", typeof(string));
 
-                // Yalnızca hafta içi ve 08:00-16:00 arası
+
                 if (_selectedDate.DayOfWeek == DayOfWeek.Saturday || _selectedDate.DayOfWeek == DayOfWeek.Sunday)
                 {
                     var emptyTable = new DataTable();
@@ -202,7 +201,7 @@ namespace proje
                     table.Rows.Add(row);
                 }
 
-                // Tasarımda önceden tanımlı kolonlar varsa temizleyip isimleri DataTable ile hizala
+
                 if (dataGridView2 != null)
                 {
                     dataGridView2.AutoGenerateColumns = true;
@@ -249,7 +248,7 @@ namespace proje
             }
             catch (Exception ex)
             {
-                // Sessizce false döndür - hata loglama
+
                 System.Diagnostics.Debug.WriteLine($"Slot kontrolü sırasında hata: {ex.Message}");
                 return false;
             }
